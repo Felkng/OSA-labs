@@ -31,7 +31,6 @@ int populate_vector_with_file(vector<string> &input, string filename) {
   if (!file.is_open()) {
     cerr << "Coudn't open file!\n";
     return 1;
-  } else {
   }
 
   string line;
