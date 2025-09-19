@@ -13,6 +13,7 @@ public:
   Registro();
   char *pack_fixed();
   void unpack_fixed(char *buffer);
+  bool is_empty();
 };
 
 #endif

@@ -28,3 +28,12 @@ void Registro::unpack_fixed(char *buffer) {
   this->name[39] = '\0';
   this->idade = (byte)buffer[40];
 }
+
+bool Registro::is_empty() {
+  for (int i = 0; i < PACKET_SIZE; i++) {
+    if (this->name[i] != '\0') {
+      return false;
+    }
+  }
+  return true;
+}
