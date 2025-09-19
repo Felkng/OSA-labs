@@ -50,7 +50,7 @@ main.o: $(MAIN).cpp Arquivo.h Registro.h Buffer.h
 	$(CC) $(FLAGS) -c $(MAIN).cpp
 	
 # gerando o arquivo objeto Registro.o
-Registro.o: Registro.cpp Registro.h
+Registro.o: Registro.cpp Registro.h Buffer.h
 	$(CC) $(FLAGS) -c Registro.cpp
 
 # gerando o arquivo objeto Buffer.o
