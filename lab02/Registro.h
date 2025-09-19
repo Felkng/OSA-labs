@@ -8,8 +8,8 @@ public:
   char name[40];
   byte idade;
 
-  char *pack_with_length();
-  void unpack_with_length(char *data);
+  Registro(char *name, byte idade);
+  Registro();
   char *pack_fixed();
   void unpack_fixed(char *buffer);
 };
