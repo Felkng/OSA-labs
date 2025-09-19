@@ -10,7 +10,7 @@ class Arquivo {
 public:
   string filename;
 
-  vector<Registro> read_registro_CSV();
+  Arquivo(string filename);
   void add_fixed_registro(Registro reg);
   vector<Registro> read_fixed_registros();
 };
