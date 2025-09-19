@@ -1,6 +1,7 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
 #include <string>
+#define NAME_SIZE 40
 using namespace std;
 
 class Registro {

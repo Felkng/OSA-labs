@@ -2,7 +2,9 @@
 #define BUFFER_H
 #include "Registro.h"
 #include <fstream>
+#include <iostream>
 
+#define PACKET_SIZE 41
 using namespace std;
 
 class Buffer {
