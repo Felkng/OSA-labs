@@ -9,6 +9,12 @@ Registro::Registro(char *name, byte idade) : idade(idade) {
   this->name[39] = '\0';
 }
 
+Registro::Registro(string &name, string &idade) {
+  strncpy(this->name, name.c_str(), NAME_SIZE);
+  this->name[39] = '\0';
+  this->idade = (byte)stoi(idade);
+}
+
 Registro::Registro() {
   this->idade = (byte)0;
   memset(this->name, '\0', NAME_SIZE);

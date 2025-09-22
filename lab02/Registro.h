@@ -9,6 +9,7 @@ public:
   char name[40];
   byte idade;
 
+  Registro(string &name, string &idade);
   Registro(char *name, byte idade);
   Registro();
   char *pack_fixed();
