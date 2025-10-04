@@ -52,6 +52,7 @@ string Buffer::unpack_comprimento() {
   for (int i = this->pointer; i < field_size; i++) {
     field += this->data[i];
   }
+  this->pointer += field_size;
   return field;
 }
 
