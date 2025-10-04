@@ -1,4 +1,5 @@
 #include "Buffer.h"
+#include <string>
 using namespace std;
 
 Buffer::Buffer(vector<char> data, int pointer) : data(data), pointer(pointer) {}
@@ -27,13 +28,36 @@ void Buffer::pack_delimitado(string &str, char delimitador) {}
 
 string Buffer::unpack_delimitado(char delimitador) { return ""; }
 
-void Buffer::pack_comprimento(string &str) {}
+void Buffer::pack_comprimento(string &str) {
+  int field_size = str.length();
+  string field_size_str = to_string(field_size);
+  for (int i = 0; i < field_size_str.length(); i++) {
+    this->data.push_back(field_size_str[i]);
+    this->pointer++;
+  }
+  // indica o final de um contador de tamanho do campo
+  this->data.push_back(' ');
+  this->pointer++;
+}
 
-string Buffer::unpack_comprimento() { return ""; }
+string Buffer::unpack_comprimento() {
+  string field_size_str;
+  for (int i = this->pointer; this->data[i] != ' '; i++) {
+    field_size_str += this->data[i];
+    this->pointer++;
+  }
+  this->pointer++;
+  int field_size = stoi(field_size_str);
+  string field;
+  for (int i = this->pointer; i < field_size; i++) {
+    field += this->data[i];
+  }
+  return field;
+}
 
-void Buffer::pack(int valor) {}
-
-int Buffer::unpack() { return 0; }
+// void Buffer::pack(int valor) {}
+//
+// int Buffer::unpack() { return 0; }
 
 bool Buffer::read(fstream &istream, int tamanho) { return false; }
 

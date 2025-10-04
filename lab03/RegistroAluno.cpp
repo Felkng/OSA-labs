@@ -21,8 +21,13 @@ void RegistroAluno::pack(Buffer &buffer, Formato formato) {
   }
   case COMPRIMENTO:
     break;
-  case DELIMITADO:
+  case DELIMITADO: {
+    buffer.pack_comprimento(this->nome);
+    string matricula_str = to_string(this->matricula);
+    buffer.pack_comprimento(matricula_str);
+    buffer.pack_comprimento(this->curso);
     break;
+  }
   default:
     cerr << "Formato de registro não identificado." << endl;
     return;
@@ -39,8 +44,12 @@ void RegistroAluno::unpack(Buffer &buffer, Formato formato) {
   }
   case COMPRIMENTO:
     break;
-  case DELIMITADO:
+  case DELIMITADO: {
+    this->nome = buffer.unpack_comprimento();
+    this->matricula = stoi(buffer.unpack_comprimento());
+    this->curso = buffer.unpack_comprimento();
     break;
+  }
   default:
     cerr << "Formato de registro não identificado." << endl;
     return;
