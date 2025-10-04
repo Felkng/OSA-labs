@@ -10,6 +10,7 @@ public:
   string nome;
   string curso;
 
+  RegistroAluno();
   RegistroAluno(string nome, int matricula, string curso);
   void pack(Buffer &buffer, Formato formato);
   void unpack(Buffer &buffer, Formato formato);

@@ -10,6 +10,8 @@ using namespace std;
 RegistroAluno::RegistroAluno(string nome, int matricula, string curso)
     : nome(nome), matricula(matricula), curso(curso) {}
 
+RegistroAluno::RegistroAluno() : nome(""), matricula(0), curso("") {}
+
 void RegistroAluno::pack(Buffer &buffer, Formato formato) {
   switch (formato) {
   case FIXO: {
