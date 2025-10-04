@@ -58,7 +58,10 @@ Buffer.o: Buffer.cpp Buffer.h Arquivo.h
 	$(CC) $(FLAGS) -c Buffer.cpp
 
 # gerando o arquivo objeto Arquivo.o
-Arquivo.o: Arquivo.cpp Arquivo.h RegistroAluno.h Buffer.h
+Arquivo.o: Arquivo.cpp Arquivo.h RegistroAluno.h Buffer.h FileHeader.h constantes.h Registro.h
+	$(CC) $(FLAGS) -c Arquivo.cpp
+
+FileHeader.o: FileHeader.cpp FileHeader.h constantes.h
 	$(CC) $(FLAGS) -c Arquivo.cpp
 
 clean:

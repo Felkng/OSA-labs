@@ -56,12 +56,28 @@ string Buffer::unpack_comprimento() {
   return field;
 }
 
+// muito provavelmente será usado para escolher qual tipo de registro será
+// utilizado no arquivo para tornar o salvamento/recuperação mais abstrato
+// ou necessário para o cabeçalho
+//
 // void Buffer::pack(int valor) {}
 //
 // int Buffer::unpack() { return 0; }
 
-bool Buffer::read(fstream &istream, int tamanho) { return false; }
+bool Buffer::read(fstream &istream, int tamanho) {
+  char *stream;
+  istream.read(stream, tamanho);
+  if (istream.gcount() != tamanho)
+    return false;
+  this->data.assign(stream, stream + tamanho);
+  return true;
+}
 
-void Buffer::write(fstream &ostream) {}
+void Buffer::write(fstream &ostream) {
+  ostream.write(this->data.data(), this->data.size());
+}
 
-void Buffer::clear() {}
+void Buffer::clear() {
+  this->data = vector<char>();
+  this->pointer = 0;
+}
