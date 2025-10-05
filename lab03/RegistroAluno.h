@@ -6,16 +6,17 @@
 
 class RegistroAluno : public Registro {
 public:
-  int matricula;
   string nome;
+  int matricula;
   string curso;
 
   RegistroAluno();
   RegistroAluno(string nome, int matricula, string curso);
   void pack(Buffer &buffer, Formato formato);
   void unpack(Buffer &buffer, Formato formato);
-  string get_chave();
+  // string get_chave();
   int get_tamanho_fixo();
+  RegistroAluno parse_csv(string csv_data, char sep);
 };
 
 #endif

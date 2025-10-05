@@ -9,8 +9,8 @@ class Registro {
 public:
   virtual void pack(Buffer &buffer, Formato formato) = 0;
   virtual void unpack(Buffer &buffer, Formato formato) = 0;
-  virtual string get_chave() = 0;
-  virtual int get_tamanho_fixo() = 0;
+  //  virtual string get_chave() = 0;
+   virtual int get_tamanho_fixo() = 0;
 };
 
 #endif
