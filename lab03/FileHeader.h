@@ -7,6 +7,11 @@
 using namespace std;
 
 class FileHeader {
+  // O cabeçalho foi criado basicamente para definir a quantidade de bytes que
+  // lidos na função de "ler_registros" Nós não sabiamos como fazer a leitura,
+  // visto que a função não recebia parâmetro, então a gente salva a quantidade
+  // em bytes de todos os registros somados, para ler todos de uma única vez e
+  // colocar na memória.
 public:
   FileHeader();
   FileHeader(Formato registro_formato, long long total_data_size,
